@@ -52,6 +52,7 @@ const MyNFTsTemplateDetail = (): JSX.Element => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
   const [assetId, setAssetId] = useState('');
+  const [serialNumber, setSerialNumber] = useState('');
 
   const isSelectedAssetBeingSold =
     rawPricesByAssetId[assetId] && rawPricesByAssetId[assetId].rawPrice;
@@ -159,7 +160,8 @@ const MyNFTsTemplateDetail = (): JSX.Element => {
         sales={sales}
         error={error}
         image={image}
-        assetId={assetId}>
+        assetId={assetId}
+        serialNumber={serialNumber}>
         <AssetFormSell
           dropdownAssets={templateAssets}
           lowestPrice={lowestPrice}
@@ -169,6 +171,7 @@ const MyNFTsTemplateDetail = (): JSX.Element => {
           isLoadingPrices={isLoadingPrices}
           handleButtonClick={handleButtonClick}
           setAssetId={setAssetId}
+          setSerialNumber={setSerialNumber}
         />
       </DetailsLayout>
     );

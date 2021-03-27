@@ -17,6 +17,7 @@ type Props = {
   tableData: Sale[];
   error?: string;
   assetId?: string;
+  serialNumber?: string;
 };
 
 type TableHeader = {
@@ -85,6 +86,7 @@ const SalesHistoryTable = ({
   tableData,
   error,
   assetId,
+  serialNumber,
 }: Props): JSX.Element => {
   const { currentUser } = useAuthContext();
   const [avatars, setAvatars] = useState({});
@@ -193,7 +195,7 @@ const SalesHistoryTable = ({
             }
             loading={isLoading}
             noData={!renderedData.length}
-            noDataMessage={'No Recent Sales'}
+            noDataMessage={`No Recent Sales for #${serialNumber}`}
             columns={tableHeaders.length}>
             {getTableContent()}
           </TableContentWrapper>
